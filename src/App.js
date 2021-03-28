@@ -1,29 +1,24 @@
-import React from 'react';
+import React from "react";
 import "./App.css";
 
 import { LoginPage } from "./components/auth";
-import { AuthContextProvider } from "./components/auth/context";
 
-function App({ isInitiallyLogged }) {
-  const [isLogged, setIsLogged] = React.useState(isInitiallyLogged);
+function App() {
+  const [isLogged, setIsLogged] = React.useState(false);
 
-  const handleLogin = () => {
-    setIsLogged(true);
-  };
+  const handleLogin = () => setIsLogged(true);
 
   const handleLogout = () => setIsLogged(false);
 
-  const authValue = {
-    isLogged,
-    onLogout: handleLogout,
-    onLogin: handleLogin,
-  };
 
   return (
     <div className="App">
-      <AuthContextProvider value={authValue}>
-        <LoginPage />
-      </AuthContextProvider>
+      {isLogged ? (
+        <div>Logueado</div>
+      ) : (
+        <LoginPage onLogin={handleLogin} />
+      )}
+
     </div>
   );
 }
