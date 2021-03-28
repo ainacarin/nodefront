@@ -29,4 +29,8 @@ export const configureClient = ({ accessToken }) => {
   }
 };
 
+export const resetClient = () => {
+  removeAuthorizationHeader();
+};
+
 export default client;

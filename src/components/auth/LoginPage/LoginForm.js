@@ -8,7 +8,6 @@ function LoginForm({ onSubmit }) {
     email: "",
     password: "",
   });
-  const [remember, setRemember] = React.useState(false);
 
   const handleChange = (event) => {
     setCredentials((oldCredentials) => {
