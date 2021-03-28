@@ -1,50 +1,47 @@
 import React from "react";
-import Button from '../../shared/Button';
-import FormField from '../../shared/FormField';
-import './LoginForm.css';
+import Button from "../../shared/Button";
+import FormField from "../../shared/FormField";
+import "./LoginForm.css";
 
 function LoginForm({ onSubmit }) {
   const [credentials, setCredentials] = React.useState({
-    username: '',
-    password: '',
+    email: "",
+    password: "",
   });
+  const [remember, setRemember] = React.useState(false);
 
-  const handleChange = event => {
-    // const newCredentials = {
-    //   ...credentials,
-    //   [event.target.name]: event.target.value,
-    // };
-    // setCredentials(newCredentials)
-    setCredentials(oldCredentials => {
+  const handleChange = (event) => {
+    setCredentials((oldCredentials) => {
       const newCredentials = {
         ...oldCredentials,
         [event.target.name]: event.target.value,
       };
       return newCredentials;
     });
+    console.log("event",event)
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit(credentials);
   };
 
-  const { username, password } = credentials;
+  const { email, password } = credentials;
 
   return (
     <form className="loginForm" onSubmit={handleSubmit}>
       <FormField
-        type="text"
-        name="username"
-        label="phone, email or username"
+        type="email"
+        name="email"
+        label="email"
         className="loginForm-field"
-        value={username}
+        value={email}
         onChange={handleChange}
       />
       <FormField
         type="password"
         name="password"
-        label="password"
+        label="contraseña"
         className="loginForm-field"
         value={password}
         onChange={handleChange}
@@ -53,7 +50,7 @@ function LoginForm({ onSubmit }) {
         type="submit"
         className="loginForm-submit"
         variant="primary"
-        disabled={!username || !password}
+        disabled={!email || !password}
       >
         Acceder
       </Button>

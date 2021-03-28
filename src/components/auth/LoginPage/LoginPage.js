@@ -1,12 +1,22 @@
 import React from "react";
 import LoginForm from './LoginForm';
+import { login } from '../../../api/auth';
+
 import './LoginPage.css';
 
 
 function LoginPage({ onLogin }) {
 
-  const handleSubmit = () => {
+  const handleSubmit = async credentials => {
     console.log("on handleSubmit");
+    try {
+      await login(credentials);
+      onLogin();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log("credentials value", credentials);
+    }
     
   };
   return (
