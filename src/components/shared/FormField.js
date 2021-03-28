@@ -3,14 +3,7 @@ import classNames from 'classnames';
 
 import './FormField.css';
 
-function FormField({ className, label, autofocus, ...props }) {
-  const inputRef = React.useRef(null);
-
-  React.useEffect(() => {
-    if (autofocus) {
-      inputRef.current.focus();
-    }
-  }, []);
+function FormField({ className, label, ...props }) {
 
   return (
     <div
@@ -23,7 +16,6 @@ function FormField({ className, label, autofocus, ...props }) {
       <label className="formField-label">
         <span>{label}</span>
         <input
-          ref={inputRef}
           className="formField-input"
           autoComplete="off"
           {...props}

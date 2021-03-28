@@ -1,11 +1,29 @@
-import './App.css';
+import React from 'react';
+import "./App.css";
 
-import { LoginPage } from './components/auth';
+import { LoginPage } from "./components/auth";
+import { AuthContextProvider } from "./components/auth/context";
 
-function App() {
+function App({ isInitiallyLogged }) {
+  const [isLogged, setIsLogged] = React.useState(isInitiallyLogged);
+
+  const handleLogin = () => {
+    setIsLogged(true);
+  };
+
+  const handleLogout = () => setIsLogged(false);
+
+  const authValue = {
+    isLogged,
+    onLogout: handleLogout,
+    onLogin: handleLogin,
+  };
+
   return (
     <div className="App">
-      <LoginPage />
+      <AuthContextProvider value={authValue}>
+        <LoginPage />
+      </AuthContextProvider>
     </div>
   );
 }

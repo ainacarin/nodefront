@@ -1,7 +1,7 @@
 import React from "react";
 import Button from '../../shared/Button';
 import FormField from '../../shared/FormField';
-import './LoginPage.css';
+import './LoginForm.css';
 
 function LoginForm() {
   return (
@@ -11,7 +11,6 @@ function LoginForm() {
         name="username"
         label="phone, email or username"
         className="loginForm-field"
-        autofocus
       />
       <FormField
         type="password"
