@@ -8,7 +8,7 @@ function LoginForm({ isLoading, onSubmit }) {
     email: "",
     password: "",
   });
-  const [flagPassword, setFlagPassword] = React.useState(false);
+  const [saveSession, setSaveSession] = React.useState(false);
 
   const handleChangeCredentials = (event) => {
     setCredentials((oldCredentials) => {
@@ -21,13 +21,13 @@ function LoginForm({ isLoading, onSubmit }) {
   };
 
   const handleChangeCheckbox = (event) => {
-    const newFlagPassword = !flagPassword;
-    setFlagPassword(newFlagPassword);
+    const newSaveSession = !saveSession;
+    setSaveSession(newSaveSession);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(credentials, flagPassword);
+    onSubmit(credentials, saveSession);
   };
 
   const { email, password } = credentials;
@@ -56,7 +56,7 @@ function LoginForm({ isLoading, onSubmit }) {
         label="Recordar contraseña"
         className="loginForm-checkbox"
         value="flag_password"
-        checked={flagPassword}
+        checked={saveSession}
         onChange={handleChangeCheckbox}
       />
       <Button

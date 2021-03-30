@@ -13,7 +13,7 @@ function App({ isInitiallyLogged }) {
   console.log("App: isLogged", isLogged);
 
   /** Handlers */
-  const handleLogin = () => setIsLogged(true);
+  const handleLogin = () =>setIsLogged(true);
   const handleLogout = () => setIsLogged(false);
 
   /** Context */

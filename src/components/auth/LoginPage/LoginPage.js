@@ -34,11 +34,13 @@ function LoginPage({ history, location }) {
     }
   });
 
-  const handleSubmit = async (credentials, flagPassword) => {
+  const handleSubmit = async (credentials, saveSession) => {
+    console.log('credentials', credentials);
+    console.log('flag', saveSession);
     resetError();
     setIsLoading(true);
     try {
-      await login(credentials);
+      await login(credentials, saveSession);
       onLogin();
       // isLogged.current = true;
     } catch (error) {
