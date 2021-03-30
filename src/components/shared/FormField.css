@@ -19,10 +19,31 @@
     width: 100%;
   }
 
+  .loginForm-checkbox .formField-label  {
+    background-color: #fff;
+    border: 0px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: center;
+    padding-left: 1rem;
+  }
+
+  .loginForm-checkbox .formField-label > span {
+    flex: 3;
+    text-align: left;
+  }
+
+  .loginForm-checkbox .formField-label > input {
+    flex: 0.5;
+    margin: 0;
+    max-width: 3%;
+  }  
+  
   .formField-label span {
     padding: 5px 10px 0 10px;
   }
   
+
   .formField-label span:first-letter {
     text-transform: capitalize;
   }

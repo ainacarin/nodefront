@@ -24,6 +24,7 @@ client.interceptors.response.use(
 );
 
 export const configureClient = ({ accessToken }) => {
+  console.log('configureClient accessToken', accessToken);
   if (accessToken) {
     setAuthorizationHeader(accessToken);
   }
