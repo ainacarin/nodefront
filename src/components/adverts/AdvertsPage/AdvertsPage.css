@@ -1,0 +1,13 @@
+.advertList {
+    height: calc(100% - var(--navbar-height));
+    width: 100%;
+    padding: 0 0.5rem 0 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: var(--back-color);
+    font-weight: bold;
+}

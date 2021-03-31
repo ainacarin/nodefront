@@ -1,0 +1,50 @@
+.advert {
+  /* border-bottom-width: 1px;
+  cursor: pointer;
+  display: flex;
+  padding: 10px 15px 0 15px;
+  transition: background-color 0.2s; */
+  position: relative;
+  margin: 0.1rem;
+  max-width: 15rem;
+
+  display: inline-block;
+}
+
+.advert:hover {
+  /* background-color: rgba(0, 0, 0, 0.03); */
+  background-color: rgba(199, 247, 247, 0.24);
+}
+
+.advert-header {
+  /* color: rgb(101, 119, 134);
+  margin-bottom: 2px; */
+  text-align: center;
+  font-size: 1.10rem;
+}
+
+.advert-tags {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  max-width: 425px;
+}
+
+.advert-name {
+  color: rgb(12, 46, 46);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.advert-sale {
+  margin: 0.5rem;
+  /* margin-left: 5px; */
+  text-align: left;
+}
+
+.advert-price {
+  margin: 0.5rem;
+  text-align: right;
+  /* padding: 0 5px; */
+}
