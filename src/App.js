@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-
+import { Link } from 'react-router-dom';
 import { Switch, Route, Redirect } from "react-router-dom";
 import { LoginPage, PrivateRoute } from "./components/auth";
 import { AuthContextProvider } from "./components/auth/context";
@@ -33,18 +33,21 @@ function App({ isInitiallyLogged }) {
       )} */}
       <AuthContextProvider value={authContextValue}>
         <Switch>
-          <PrivateRoute path="/advert/:id">
-            {({ match }) => (
+          <PrivateRoute  path="/advert/new">
+            {({ location }) => (
               <div>
-                detalle de anuncio
+                Nuevo anuncio
+                <Link to="/adverts">Listado</Link>
                 <AuthButton className="header-button" />
               </div>
             )}
           </PrivateRoute>
-          <PrivateRoute path="/advert/new">
-            {({ location }) => (
+          <PrivateRoute  path="/advert/:id">
+            {({ match }) => (
               <div>
-                Nuevo anuncio
+                detalle de anuncio
+                <Link to="/adverts">Listado</Link>
+                <Link to="/advert/new">Nuevo anuncio</Link>
                 <AuthButton className="header-button" />
               </div>
             )}
@@ -53,6 +56,8 @@ function App({ isInitiallyLogged }) {
             {({ history }) => (
               <div>
                 Listado de anuncios
+                <Link to="/advert/4">Detalle 4</Link>
+                <Link to="/advert/new">Nuevo anuncio</Link>
                 <AuthButton className="header-button" />
               </div>
             )}
@@ -84,6 +89,7 @@ function App({ isInitiallyLogged }) {
               }}
             >
               404 | Not found page
+              <Link to="/adverts">Listado</Link>
             </div>
           </Route>
           <Route>

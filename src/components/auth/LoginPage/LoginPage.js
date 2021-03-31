@@ -28,25 +28,30 @@ function LoginPage({ history, location }) {
 
   React.useEffect(() => {
     if (isLogged) {
-      onLogin();
+      // onLogin();
+      setIsLoading(false);
+    console.log('loading useEffect', isLoading);
       const { from } = location.state || { from: { pathname: "/" } };
       history.replace(from);
     }
-  });
+  }, [isLogged, isLoading, location, history]);
 
   const handleSubmit = async (credentials, saveSession) => {
     console.log('credentials', credentials);
     console.log('flag', saveSession);
     resetError();
     setIsLoading(true);
+    console.log('loading submit', isLoading);
     try {
       await login(credentials, saveSession);
       onLogin();
       // isLogged.current = true;
     } catch (error) {
+      setIsLoading(false);
+    console.log('loading error', isLoading);
       setError(error);
     } finally {
-      setIsLoading(false);
+      // setIsLoading(false);
     }
   };
   return (

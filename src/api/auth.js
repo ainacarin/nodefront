@@ -13,6 +13,10 @@ export const login = (credentials, saveSession) => {
 export const logout = () => {
   return Promise.resolve().then(() => {
     resetClient();
-    // storage.remove('auth');
+    console.log('cabeceras de cliente reseteadas');
+    if(storage.get('auth')) {
+      storage.remove('auth');
+    console.log('storage auth borrado');
+    }
   });
 };
