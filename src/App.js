@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { LoginPage, PrivateRoute } from "./components/auth";
 import { AuthContextProvider } from "./components/auth/context";
 import AuthButton from "./components/auth/AuthButton";
-import AdvertsPage from "./components/adverts/AdvertsPage";
+import { AdvertsPage, AdvertPage } from "./components/adverts";
 
 function App({ isInitiallyLogged }) {
   /** Properties */
@@ -14,7 +14,7 @@ function App({ isInitiallyLogged }) {
   console.log("App: isLogged", isLogged);
 
   /** Handlers */
-  const handleLogin = () =>setIsLogged(true);
+  const handleLogin = () => setIsLogged(true);
   const handleLogout = () => setIsLogged(false);
 
   /** Context */
@@ -34,7 +34,7 @@ function App({ isInitiallyLogged }) {
       )} */}
       <AuthContextProvider value={authContextValue}>
         <Switch>
-          <PrivateRoute  path="/advert/new">
+          <PrivateRoute path="/advert/new">
             {({ location }) => (
               <div>
                 Nuevo anuncio
@@ -43,15 +43,16 @@ function App({ isInitiallyLogged }) {
               </div>
             )}
           </PrivateRoute>
-          <PrivateRoute  path="/advert/:id">
-            {({ match }) => (
+          <PrivateRoute path="/advert/:advertId">
+            {/* {({ match }) => (
               <div>
                 detalle de anuncio
                 <Link to="/adverts">Listado</Link>
                 <Link to="/advert/new">Nuevo anuncio</Link>
                 <AuthButton className="header-button" />
               </div>
-            )}
+            )} */}
+            {(routeProps) => <AdvertPage {...routeProps} />}
           </PrivateRoute>
           <PrivateRoute path="/adverts">
             {/* {({ history }) => (
@@ -78,9 +79,7 @@ function App({ isInitiallyLogged }) {
             }
           </Route>
           <PrivateRoute exact path="/">
-          {({ history }) => (
-            <Redirect to="/adverts" />
-            )}
+            {({ history }) => <Redirect to="/adverts" />}
           </PrivateRoute>
           <Route path="/404">
             <div

@@ -1,0 +1,27 @@
+.advert-container {
+    width: 80%;
+}
+
+.advert-header, .advert-content p {
+    padding: 1.25rem;
+    margin:0.15rem;
+}
+
+.advert-header span {
+    font-size: 2rem;
+}
+
+.advert-content {
+    font-size: 1.5rem;
+    flex-direction: row;
+}
+
+.advert-info {
+    display:flex;
+    justify-content:space-between;
+}
+
+.advert-price {
+    width: 25%;
+}
+

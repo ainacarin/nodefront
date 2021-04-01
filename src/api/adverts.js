@@ -7,3 +7,7 @@ export const getAllAdverts = () => {
   return client.get(url);
 };
 
+export const getAdvert = advertId => {
+  const url = `${advertsBaseUrl}/adverts/${advertId}`;
+  return client.get(url);
+};
