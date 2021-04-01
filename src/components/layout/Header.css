@@ -16,7 +16,7 @@
 }
 
 .header-logo:hover {
-  background-color: rgba(15, 236, 218, 0.959);
+  background-color: rgb(24, 190, 190);
 }
 
 .header-nav {
@@ -28,4 +28,5 @@
 .header-button {
   width: 144px;
   margin-left: 10px;
+  background-color: #fff;
 }

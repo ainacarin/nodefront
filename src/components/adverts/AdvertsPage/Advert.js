@@ -3,6 +3,8 @@ import './Advert.css';
 
 const Advert = ({ name, sale, price, tags, photo }) => {
 
+  const textSale = (sale) => sale ? "Se vende" : "Se compra";
+
   return (
     <article className="advert bordered">
       <div className="right">
@@ -10,10 +12,10 @@ const Advert = ({ name, sale, price, tags, photo }) => {
           <span className="advert-name">{name}</span>
         </div>
         <div>
-          <p className="advert-sale">{sale}</p>
-          <p className="advert-price">{price}</p>
-          <ul className="advert-tags">
-            {tags.map((tag,i) => <li key={i}>{tag}</li>)}
+          <p className="advert-sale">{textSale(sale)}</p>
+          <p className="advert-price">{price} €</p>
+          <ul className="advert-tags-list">
+            {tags.map((tag,i) => <li className="advert-tag-item" key={i}>#{tag}</li>)}
           </ul>
         </div>
       </div>
