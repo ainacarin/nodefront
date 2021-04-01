@@ -21,15 +21,7 @@ const AdvertsPage = ({ className, ...props }) => {
   const [adverts, setAdverts] = React.useState([]);
 
   React.useEffect(() => {
-    getAllAdverts().then((adverts) => { 
-      const newList = [];
-      for (let index = 0; index < 8; index++) {
-        adverts.forEach(element => {
-          newList.push(element);
-        });
-      }
-      setAdverts(newList);
-    });
+    getAllAdverts().then(setAdverts);
   }, []);
 
   return (

@@ -8,8 +8,7 @@ const AdvertsList = ({ adverts }) => {
     <div className="advertsList">
       {adverts.map((advert,i) => (
         // <li key={advert.id}>
-          // <Link to={`/advert/${advert.id}`} key={advert.id}>
-          <Link to={`/advert/${advert.id}`} key={i}>
+          <Link to={`/advert/${advert.id}`} key={advert.id}>
             <Advert
               {...advert}
             />
