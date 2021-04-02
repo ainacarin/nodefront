@@ -4,21 +4,20 @@ import "./AdvertDetail.css";
 import Photo from "../../shared/Photo";
 import defaultPhoto from "../../../assets/default-photo.png";
 
-const TagList = ({ tags }) => {
+const TagList = (tags) => {
   return (
     <ul className="advert-tags-list">
-      {/* {tags.map((tag) => (
-        <li className="advert-tag-item" key={tag}>{tag}</li>
-      ))} */}
-      {tags}
+      {tags.tags.map((tag) => (
+        <li className="advert-tag-item" key={tag}>#{tag}</li>
+      ))}
     </ul>
   );
 };
 
 const AdvertDetail = ({ advert }) => {
-  const textSale = (sale) => (sale ? "Se vende" : "Se compra");
   console.log(advert);
   const { name, sale, price, tags } = { ...advert };
+  const textSale = (sale) => (sale ? "Se vende" : "Se compra");
   return (
     <article className="advert-container bordered">
       <div className="advert-header">
@@ -32,11 +31,7 @@ const AdvertDetail = ({ advert }) => {
         <div className="advert-photo-container">
           <Photo src={defaultPhoto} className="advert-photo" />
         </div>
-        {/* <ul className="advert-tags-list">
-
-        </ul> */}
-        {/* {tags} */}
-        <TagList tags={tags} />
+        {tags.length ? <TagList tags={tags} /> : <p />}
       </div>
     </article>
   );
