@@ -4,7 +4,7 @@ import Layout from "../../layout/Layout";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router";
 import { getAdvert } from "../../../api/adverts";
-import { Button } from "../../shared";
+import { Button, Loader } from "../../shared";
 import "./AdvertPage.css";
 import AdvertDetail from "./AdvertDetail";
 
@@ -49,7 +49,8 @@ const AdvertPage = ({ match, ...routeProps }) => {
     if (isLoading) {
       // console.log("On children isLoading", isLoading);
       // debugger;
-      return <div>Waiting</div>;
+      // return <div>Waiting</div>;
+      return <Loader />
     } else if (error) {
       // console.log("On children error", advert);
       // debugger;
