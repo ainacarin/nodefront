@@ -16,8 +16,9 @@ const TagList = (tags) => {
 
 const AdvertDetail = ({ advert }) => {
   console.log(advert);
-  const { name, sale, price, tags } = { ...advert };
+  const { name, sale, price, tags, photo } = { ...advert };
   const textSale = (sale) => (sale ? "Se vende" : "Se compra");
+  const srcPhoto = photo ? `${process.env.REACT_APP_API_BASE_URL}${photo}` : defaultPhoto;
   return (
     <article className="advert-container bordered">
       <div className="advert-header">
@@ -29,7 +30,8 @@ const AdvertDetail = ({ advert }) => {
           <div className="advert-price">{price} €</div>
         </div>
         <div className="advert-photo-container">
-          <Photo src={defaultPhoto} className="advert-photo" />
+          {/* <Photo src={photo || defaultPhoto} className="advert-photo" /> */}
+          <Photo src={srcPhoto} className="advert-photo" />
         </div>
         {tags.length ? <TagList tags={tags} /> : <p />}
       </div>
