@@ -3,6 +3,7 @@ import "./AdvertDetail.css";
 
 import Photo from "../../shared/Photo";
 import defaultPhoto from "../../../assets/default-photo.png";
+import { Button } from '../../shared';
 
 const TagList = (tags) => {
   return (
@@ -34,6 +35,9 @@ const AdvertDetail = ({ advert }) => {
           <Photo src={srcPhoto} className="advert-photo" />
         </div>
         {tags.length ? <TagList tags={tags} /> : <p />}
+      </div>
+      <div className="advert-container-delete-button">
+        <Button className="advert-delete-button" variant="primary">Borrar anuncio</Button>
       </div>
     </article>
   );

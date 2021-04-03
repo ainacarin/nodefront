@@ -25,3 +25,8 @@
     width: 25%;
 }
 
+.advert-container-delete-button {
+    display: flex;
+    justify-content: flex-end;
+    padding: 2rem;
+}
