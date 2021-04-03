@@ -4,6 +4,7 @@ import "./AdvertDetail.css";
 import Photo from "../../shared/Photo";
 import defaultPhoto from "../../../assets/default-photo.png";
 import { Button } from '../../shared';
+import ModalConfirm from "../../shared/ModalConfirm";
 
 const TagList = (tags) => {
   return (
@@ -20,6 +21,10 @@ const AdvertDetail = ({ advert }) => {
   const { name, sale, price, tags, photo } = { ...advert };
   const textSale = (sale) => (sale ? "Se vende" : "Se compra");
   const srcPhoto = photo ? `${process.env.REACT_APP_API_BASE_URL}${photo}` : defaultPhoto;
+  
+  const callback = (flag) => console.log('flag', flag);
+
+  
   return (
     <article className="advert-container bordered">
       <div className="advert-header">
@@ -38,6 +43,7 @@ const AdvertDetail = ({ advert }) => {
       </div>
       <div className="advert-container-delete-button">
         <Button className="advert-delete-button" variant="primary">Borrar anuncio</Button>
+        <ModalConfirm title="¿Está seguro?" message="Esta acción no tiene vuelta atrás" buttonPressed={callback}/>
       </div>
     </article>
   );
