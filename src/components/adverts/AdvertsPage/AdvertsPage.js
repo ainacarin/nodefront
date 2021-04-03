@@ -1,34 +1,61 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import classnames from 'classnames';
-import { getAllAdverts } from '../../../api/adverts';
-import Layout from '../../layout/Layout';
-import { Button } from '../../shared';
-import './AdvertsPage.css';
-import AdvertsList from './AdvertsList';
+import React from "react";
+import { Link } from "react-router-dom";
+import classnames from "classnames";
+import { getAllAdverts } from "../../../api/adverts";
+import Layout from "../../layout/Layout";
+import { Button, Loader } from "../../shared";
+import "./AdvertsPage.css";
+import AdvertsList from "./AdvertsList";
 
 const EmptyList = () => (
-  <div style={{ textAlign: 'center' }}>
+  <div style={{ textAlign: "center" }}>
     <p>No hay anuncios para mostrar</p>
-    <p>¿Quieres ser el primero? ;-)</p>
-    <Button as={Link} to="/advert/new" variant="primary">
-      Crear anuncio
-    </Button>
   </div>
 );
 
 const AdvertsPage = ({ className, ...props }) => {
-  const [adverts, setAdverts] = React.useState([]);
+  const [advertsList, setAdverts] = React.useState([]);
+  const [isLoading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
 
-  React.useEffect(() => {
-    getAllAdverts().then(setAdverts);
+  const handleSuccess = ( advertsList ) => {
+    setAdverts(advertsList);
+    setLoading(false);
+  };
+
+  const handleError = ({ ...error }) => {
+    setError(error);
+    setLoading(false);
+  };
+
+  const children = () => {
+    if (isLoading) {
+      return <Loader />;
+    } else if (error) {
+      return (
+        <div>
+          <div className="advertPage-error">{error.message}</div>
+        </div>
+      );
+    } else if (advertsList.length) {
+      return <AdvertsList adverts={advertsList} />;
+    } else {
+      return <EmptyList />;
+    }
+  };
+
+  React.useEffect(async () => {
+    try {
+      const advertsList = await getAllAdverts();
+      handleSuccess(advertsList);
+    } catch (error) {
+      handleError(error);
+    }
   }, []);
 
   return (
     <Layout title="NodeAnuncios" {...props}>
-      {/* <div> */}
-        {adverts.length ? <AdvertsList adverts={adverts} /> : <EmptyList />}
-      {/* </div> */}
+      {children()}
     </Layout>
   );
 };
