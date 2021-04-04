@@ -1,0 +1,42 @@
+.newAdvertForm-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    color: rgb(24,190,190);
+}
+
+.formField > label{
+    display:flex;
+    flex-direction: row;
+    background-color:white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+}
+
+.formField-label > span{
+    background-color: rgb(24,190,190);
+    color: white;
+    margin-right: 1rem;
+    min-width: 10rem;
+}
+
+.formField-label > input{
+    color: rgb(24,190,190);
+}
+
+.saleAdvertForm-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    border-color: rgb(24,190,190);
+    border-style: solid;
+    border-width: 0.15rem;
+}
+
+.saleAdvertForm-container-title {
+    font-size: 1.1rem;
+    text-align: left;
+
+}

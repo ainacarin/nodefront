@@ -10,9 +10,11 @@ const NewAdvertPage = props => {
   const [error, setError] = React.useState(null);
   const [createdAdvert, setCreatedAdvert] = React.useState(null);
 
+
     const handleSubmit = (event) => {
         console.log('on handleSubmit new advert page', event);
     };
+    
 
   return (
     <Layout title="Crea un nuevo anuncio" {...props}>
