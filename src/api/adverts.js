@@ -11,3 +11,8 @@ export const getAdvert = advertId => {
   const url = `${advertsBaseUrl}/adverts/${advertId}`;
   return client.get(url);
 };
+
+export const deleteAdvert = advertId => {
+  const url = `${advertsBaseUrl}/adverts/${advertId}`;
+  return client.delete(url);
+};

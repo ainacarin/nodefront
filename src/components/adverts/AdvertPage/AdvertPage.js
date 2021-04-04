@@ -67,7 +67,7 @@ const AdvertPage = ({ match, ...routeProps }) => {
     } else if (!!advert) {
       // console.log("On children advert", advert);
       // debugger;
-      return <AdvertDetail advert={advert} />;
+      return <AdvertDetail advert={advert} {...routeProps}/>;
     }
   };
   // console.log("On AdvertPage");
