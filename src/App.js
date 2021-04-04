@@ -5,7 +5,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { LoginPage, PrivateRoute } from "./components/auth";
 import { AuthContextProvider } from "./components/auth/context";
 import AuthButton from "./components/auth/AuthButton";
-import { AdvertsPage, AdvertPage } from "./components/adverts";
+import { AdvertsPage, AdvertPage, NewAdvertPage } from "./components/adverts";
 
 function App({ isInitiallyLogged }) {
   /** Properties */
@@ -35,13 +35,14 @@ function App({ isInitiallyLogged }) {
       <AuthContextProvider value={authContextValue}>
         <Switch>
           <PrivateRoute path="/advert/new">
-            {({ location }) => (
+            {/* {({ location }) => (
               <div>
                 Nuevo anuncio
                 <Link to="/adverts">Listado</Link>
                 <AuthButton className="header-button" />
               </div>
-            )}
+            )} */}
+            <NewAdvertPage />
           </PrivateRoute>
           <PrivateRoute path="/advert/:advertId">
             {/* {({ match }) => (
