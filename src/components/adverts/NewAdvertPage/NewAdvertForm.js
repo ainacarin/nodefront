@@ -35,7 +35,7 @@ const NewAdvertForm = ({ onSubmit }) => {
     sale: "",
     price: 0,
     tags: [],
-    photo: ""
+    photo: null
   });
   const [tagsList, setTagsList] = React.useState([]);
 
@@ -74,8 +74,9 @@ const NewAdvertForm = ({ onSubmit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // onSubmit(advert);
     console.log('on submit', event);
+    console.log('on submit advert', advert);
+    onSubmit(advert);
   };
 
   React.useEffect(async () => {
