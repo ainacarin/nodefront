@@ -4,7 +4,9 @@ import FormField from "../../shared/FormField";
 import { getAllTags } from '../../../api/adverts';
 import "./NewAdvertForm.css";
 
-const TagsList = (tags, onChange) => {
+const TagsList = (tags) => {
+  const { onChange } = { ...tags };
+
   return (
     <div className="tagsAdvertForm-container">
       <legend>Elija los tags asociados al anuncio</legend>
@@ -13,11 +15,12 @@ const TagsList = (tags, onChange) => {
           <li className="tagsAdvertForm-item" key={tag}>
             <FormField
               type="checkbox"
-              name="tag"
+              name="tags"
               label={tag}
               className="tagAdvertForm-item"
               value={tag}
               id={tag}
+              onChange={onChange}
             />
           </li>
         ))}
@@ -36,19 +39,37 @@ const NewAdvertForm = ({ onSubmit }) => {
   });
   const [tagsList, setTagsList] = React.useState([]);
 
-  const handleChangeCheckbox = (event) => {
-    console.log('checkbox event', event);
-  };
-
-  const handleChangeAdvert = (event) => {
-    console.log('on handleChangeAdvert', event.target.value);
+  const updateAdvert = (name, value) => {
     setAdvert((oldAdvert) => {
       const newAdvert = {
         ...oldAdvert,
-        [event.target.name]: event.target.value,
+        // [event.target.name]: event.target.value,
+        [name]: value
       };
       return newAdvert;
     });
+  }
+
+  const handleChangeCheckbox = (event) => {
+    console.log('event.taget.checked', event.target.checked);
+    const newTags = tags.slice();
+    console.log('newTags', tags);
+    console.log('newTags', newTags);
+    if(event.target.checked) {
+      //add in state advert
+      newTags.push(event.target.value);
+    } else if(newTags.length) {
+      //delete from state advert
+      const indexTag = newTags.lastIndexOf(event.target.value);
+      if(indexTag > -1) {
+        newTags.splice(indexTag, 1);
+      }
+    }
+    updateAdvert(event.target.name, newTags);
+  };
+
+  const handleChangeAdvert = (event) => {
+    updateAdvert(event.target.name, event.target.value);
   };
 
   const handleSubmit = (event) => {
@@ -74,6 +95,10 @@ const NewAdvertForm = ({ onSubmit }) => {
   console.log('tags', tags);
   console.log('photo', photo);
   console.log('advert', advert);
+
+  const isDisabled = () => {
+    return (!name || !sale || (price < 0) || (tags.length <= 0));
+  }
 
   return (
     <form className="newAdvertForm-form" onSubmit={handleSubmit}>
@@ -114,13 +139,13 @@ const NewAdvertForm = ({ onSubmit }) => {
         label="Precio €"
         className="priceAdvertForm-field"
         value={price}
-        step="0.01"
-        min="0.00"
+        step={0.01}
+        min={0} 
         required
         onChange={handleChangeAdvert}
       />
       {/* {tagsList.length ? <TagsList tags={tagsList} onChange={handleChangeCheckbox} required /> : <p>No hay tags disponibles</p>} */}
-      {tagsList.length ? <TagsList tags={tagsList} onChange={handleChangeCheckbox} required /> : <p>No hay tags disponibles</p>}
+      {tagsList.length ? <TagsList tags={tagsList} onChange={handleChangeCheckbox} onChange={handleChangeCheckbox} required /> : <p>No hay tags disponibles</p>}
       <FormField
         type="file"
         name="photo"
@@ -133,7 +158,7 @@ const NewAdvertForm = ({ onSubmit }) => {
         type="submit"
         className="newAdvertForm-submit"
         variant="primary"
-        disabled={true}
+        disabled={isDisabled()}
       >
         Crear anuncio
       </Button>
