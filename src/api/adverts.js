@@ -23,10 +23,6 @@ export const getAllTags = () => {
 };
 
 export const createAdvert = (advert) => {
-  console.log('on createAdvert advert', advert);
-  // const formData = new FormData();
-  // advert.photo = formData;
-  // console.log('on createAdvert advert con form data', advert);
   const data = new FormData();
   data.append('name',advert.name);
   data.append('sale',advert.sale);
@@ -34,11 +30,7 @@ export const createAdvert = (advert) => {
   data.append('tags',advert.tags);
   console.log('photo',advert.photo)
   if (advert.photo) {
-    console.log('crea con photo', advert.photo);
     data.append('photo',advert.photo);
-  }
-  else{
-    console.log('crea sin foto', advert.photo);
   }
 
   const advertSender = { 
@@ -53,11 +45,6 @@ export const createAdvert = (advert) => {
         'content-type': 'multipart/form-data'
     }
 }
-  // const json = JSON.stringify(advert);
-  // console.log('advertSender', advertSender);
-  // const json = JSON.stringify(advertSender);
   const url = `${advertsBaseUrl}/adverts`;
-  // return client.post(url, json, config);
   return client.post(url, data);
-
 };

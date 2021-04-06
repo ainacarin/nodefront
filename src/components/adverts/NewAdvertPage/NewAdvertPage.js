@@ -14,17 +14,8 @@ const NewAdvertPage = props => {
 
 
     const handleSubmit = async (newAdvert) => {
-        console.log('on handleSubmit new advert page', newAdvert);
-        // const ad = {
-        //   name:"white",
-        //   sale: "true",
-        //   price: "9",
-        //   tags: ["mobile"]
-        // }
-        
         try {
           const advert = await createAdvert(newAdvert);
-          // const advert = await createAdvert(ad);
           setCreatedAdvert(advert);
         } catch (error) {
           setError(true);
@@ -43,7 +34,6 @@ const NewAdvertPage = props => {
     <Layout title="Crea un nuevo anuncio" {...props}>
       <div className="newAdvertPage" style={{ borderBottomWidth: 10 }}>
           <NewAdvertForm onSubmit={handleSubmit} />
-          {/* En página para crear un anuncio */}
       </div>
     </Layout>
   );

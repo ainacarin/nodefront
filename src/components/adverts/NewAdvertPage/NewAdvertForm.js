@@ -43,7 +43,6 @@ const NewAdvertForm = ({ onSubmit }) => {
     setAdvert((oldAdvert) => {
       const newAdvert = {
         ...oldAdvert,
-        // [event.target.name]: event.target.value,
         [name]: value
       };
       return newAdvert;
@@ -51,10 +50,7 @@ const NewAdvertForm = ({ onSubmit }) => {
   }
 
   const handleChangeCheckbox = (event) => {
-    console.log('event.taget.checked', event.target.checked);
     const newTags = tags.slice();
-    console.log('newTags', tags);
-    console.log('newTags', newTags);
     if(event.target.checked) {
       //add in state advert
       newTags.push(event.target.value);
@@ -76,15 +72,12 @@ const NewAdvertForm = ({ onSubmit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('on submit', event);
-    console.log('on submit advert', advert);
     onSubmit(advert);
   };
 
   React.useEffect(async () => {
     try {
       const listTags = await getAllTags();
-      console.log('tags list', listTags);
       setTagsList(listTags);
     } catch (error) {
       console.log(error.error);
@@ -92,12 +85,6 @@ const NewAdvertForm = ({ onSubmit }) => {
   }, []);
 
   const { name, sale, price, tags, photo } = { ...advert };
-  console.log('name', name);
-  console.log('sale', sale);
-  console.log('price', price);
-  console.log('tags', tags);
-  console.log('photo', photo);
-  console.log('advert', advert);
 
   const isDisabled = () => {
     const nameTrim = name.trim();
@@ -148,7 +135,6 @@ const NewAdvertForm = ({ onSubmit }) => {
         required
         onChange={handleChangeAdvert}
       />
-      {/* {tagsList.length ? <TagsList tags={tagsList} onChange={handleChangeCheckbox} required /> : <p>No hay tags disponibles</p>} */}
       {tagsList.length ? <TagsList tags={tagsList} onChange={handleChangeCheckbox} onChange={handleChangeCheckbox} required /> : <p>No hay tags disponibles</p>}
       <FormField
         type="file"
