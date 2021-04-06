@@ -69,6 +69,8 @@ const NewAdvertForm = ({ onSubmit }) => {
   };
 
   const handleChangeAdvert = (event) => {
+    event.target.name == "photo" ? 
+    updateAdvert(event.target.name, event.target.files[0]) :
     updateAdvert(event.target.name, event.target.value);
   };
 
@@ -98,7 +100,8 @@ const NewAdvertForm = ({ onSubmit }) => {
   console.log('advert', advert);
 
   const isDisabled = () => {
-    return (!name || !sale || (price < 0) || (tags.length <= 0));
+    const nameTrim = name.trim();
+    return ((nameTrim.length == 0) || !sale || (price < 0) || (tags.length <= 0));
   }
 
   return (
@@ -154,6 +157,7 @@ const NewAdvertForm = ({ onSubmit }) => {
         id="photo"
         className="photoAdvertForm-field"
         accept="image/*"
+        onChange={handleChangeAdvert}
       />
       <Button
         type="submit"

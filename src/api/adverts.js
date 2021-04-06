@@ -27,20 +27,37 @@ export const createAdvert = (advert) => {
   // const formData = new FormData();
   // advert.photo = formData;
   // console.log('on createAdvert advert con form data', advert);
+  const data = new FormData();
+  data.append('name',advert.name);
+  data.append('sale',advert.sale);
+  data.append('price',advert.price);
+  data.append('tags',advert.tags);
+  console.log('photo',advert.photo)
+  if (advert.photo) {
+    console.log('crea con photo', advert.photo);
+    data.append('photo',advert.photo);
+  }
+  else{
+    console.log('crea sin foto', advert.photo);
+  }
+
   const advertSender = { 
     name: advert.name, 
     sale: advert.sale,
     price: advert.price,
-    tags: advert.tags 
+    tags: advert.tags,
+    photo: advert.photo
   };
   const config = {
     headers: {
-      "content-type": "application/json",
-    },
-  };
+        'content-type': 'multipart/form-data'
+    }
+}
   // const json = JSON.stringify(advert);
-  console.log('advertSender', advertSender);
-  const json = JSON.stringify(advertSender);
+  // console.log('advertSender', advertSender);
+  // const json = JSON.stringify(advertSender);
   const url = `${advertsBaseUrl}/adverts`;
-  return client.post(url, json, config);
+  // return client.post(url, json, config);
+  return client.post(url, data);
+
 };
