@@ -28,7 +28,6 @@ export const createAdvert = (advert) => {
   data.append('sale',advert.sale);
   data.append('price',advert.price);
   data.append('tags',advert.tags);
-  console.log('photo',advert.photo)
   if (advert.photo) {
     data.append('photo',advert.photo);
   }
