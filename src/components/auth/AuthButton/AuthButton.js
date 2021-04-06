@@ -1,33 +1,62 @@
-import { Link } from 'react-router-dom';
-import { Button } from '../../shared';
-import { logout } from '../../../api/auth';
-import { AuthContextConsumer } from '../context';
-
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "../../shared";
+import { logout } from "../../../api/auth";
+import { AuthContextConsumer } from "../context";
+import ModalConfirm from "../../shared/ModalConfirm";
 
 const AuthButton = ({ className, isLogged, onLogout }) => {
-  const handleLogoutClick = () => {
+  // const handleLogoutClick = () => {
+  //   logout().then(onLogout);
+  // };
+
+  const [isConfirmDisplay, setIsConfirmDisplay] = React.useState(false);
+
+  const handleLogout = () => {
     logout().then(onLogout);
   };
 
+  const handleLogoutClick = () => {
+    setIsConfirmDisplay(true);
+  };
+
+  const callback = (flag) => {
+    setIsConfirmDisplay(false);
+    if (flag) {
+      handleLogout();
+    }
+  };
+
   const props = isLogged
-    ? { onClick: handleLogoutClick, children: 'Log out' }
+    ? { onClick: handleLogoutClick, children: "Log out" }
     : {
         as: Link,
-        to: '/login',
-        children: 'Log in',
+        to: "/login",
+        children: "Log in",
       };
 
-  return <Button className={className} {...props} />;
+  return (
+    <div>
+      <Button className={className} {...props}></Button>
+      {isConfirmDisplay && (
+        <ModalConfirm
+          title="¿Está seguro?"
+          message="Esta acción no tiene vuelta atrás"
+          buttonPressed={callback}
+        />
+      )}
+    </div>
+  );
 };
 
 AuthButton.defaultProps = {
   isLogged: false,
 };
 
-const ConnectedAuthButton = props => {
+const ConnectedAuthButton = (props) => {
   return (
     <AuthContextConsumer>
-      {value => {
+      {(value) => {
         return (
           <AuthButton
             isLogged={value.isLogged}
