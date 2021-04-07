@@ -31,10 +31,8 @@ const AdvertDetail = ({ advert, ...routeProps }) => {
   const { history } = { ...routeProps };
 
   const callback = async (flag) => {
-    console.log("flag", flag);
     setIsConfirmDisplay(false);
     if (flag) {
-      console.log("user confirm delete advert");
       // delete advert
       try {
         const resultDelete = await deleteAdvert(id);
