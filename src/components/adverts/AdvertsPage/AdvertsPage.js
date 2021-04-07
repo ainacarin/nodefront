@@ -38,7 +38,8 @@ const AdvertsPage = ({ className, ...props }) => {
         </div>
       );
     } else if (advertsList.length) {
-      return <AdvertsList adverts={advertsList} />;
+      return (
+        <AdvertsList advertsList={advertsList} ></AdvertsList>);
     } else {
       return <EmptyList />;
     }
