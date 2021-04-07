@@ -3,11 +3,11 @@ import classNames from "classnames";
 
 import "./ModalConfirm.css";
 
-function ModalConfirm({ className, title, message, buttonPressed, ...props }) {
+function ModalConfirm({ className, title, message, buttonPressed, mainStyle, ...props }) {
   const handleActionButtonYes = () => buttonPressed(true);
   const handleActionButtonNo = () => buttonPressed(false);
   return (
-    <div className="modal-confirm-main">
+    <div className="modal-confirm-main" mainStyle>
       <div
         className={classNames("modal-confirm-container", className)}
         {...props}
