@@ -16,7 +16,7 @@ const AdvertsList = ({ advertsList }) => {
     SetAdverts(filterNameAdverts);
   };
 
-  const handleCleanFilters = () => {
+  const handleCloseFilters = () => {
     console.log("on handleCleanFilters");
     SetAdverts(advertsInit);
 
@@ -26,7 +26,7 @@ const AdvertsList = ({ advertsList }) => {
     <div>
       <FiltersAdverts
         handleFilters={handleFilters}
-        handleCleanFilters={handleCleanFilters}
+        handleCloseFilters={handleCloseFilters}
       ></FiltersAdverts>
       <div className="advertsList">
         {adverts.map((advert, i) => (

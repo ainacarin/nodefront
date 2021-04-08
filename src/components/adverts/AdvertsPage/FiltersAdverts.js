@@ -30,7 +30,7 @@ const TagsList = (tags) => {
 const FiltersAdverts = ({
   className,
   handleFilters,
-  handleCleanFilters,
+  handleCloseFilters,
   ...props
 }) => {
   const [isFiltersDisplay, setFiltersDisplay] = React.useState(false);
@@ -41,9 +41,14 @@ const FiltersAdverts = ({
 
   const changeIsFiltersDisplay = () => setFiltersDisplay(!isFiltersDisplay);
   const cleanFilters = () => {
-    changeIsFiltersDisplay();
     setName("");
-    handleCleanFilters();
+    handleCloseFilters();
+  }
+ 
+  const cleanCloseFilters = () => {
+    changeIsFiltersDisplay();
+    cleanFilters();
+    handleCloseFilters();
   };
   const handleName = (event) => {
       setName(event.target.value);
@@ -82,9 +87,14 @@ const FiltersAdverts = ({
         </form>
       )}
       {isFiltersDisplay ? (
+        <div>
         <Button className="filters-button" onClick={cleanFilters}>
           Borrar Filtros
         </Button>
+        <Button className="filters-button" onClick={cleanCloseFilters}>
+          Cerrar Filtros
+        </Button>
+        </div>
       ) : (
         <Button className="filters-button" onClick={changeIsFiltersDisplay}>
           {" "}
