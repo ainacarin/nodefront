@@ -36,10 +36,6 @@ const FiltersAdverts = ({
   ...props
 }) => {
   const [isFiltersDisplay, setFiltersDisplay] = React.useState(false);
-  // const [name, setName] = React.useState("");
-  // const [sale, setSale] = React.useState("");
-  // const [price, setPrice] = React.useState(0);
-  // const [tags, setTags] = React.useState([]);
   const [tagsList, setTagsList] = React.useState([]);
   const [filters, setFilters] = React.useState({
     name: "",
@@ -51,7 +47,6 @@ const FiltersAdverts = ({
 
   const changeIsFiltersDisplay = () => setFiltersDisplay(!isFiltersDisplay);
   const cleanFilters = () => {
-    // setName("");
     const emptyFilters = {
       name: "",
       sale: "",
@@ -68,12 +63,6 @@ const FiltersAdverts = ({
     cleanFilters();
     handleCloseFilters();
   };
-  // const handleName = (event) => {
-  //   setName(event.target.value);
-  // };
-  // const handleSale = (event) => {
-  //   setSale(event.target.value);
-  // };
 
   const updateFilters = (name, value) => {
 
@@ -87,8 +76,6 @@ const FiltersAdverts = ({
   };
 
   const handleChangeFilters = (event) => {
-    // console.log('event name', event.target.name);
-    // console.log('event value', event.target.value);
     updateFilters(event.target.name, event.target.value);
   };
 
@@ -113,22 +100,6 @@ const FiltersAdverts = ({
     event.preventDefault();
     console.log("on handle submit filters", filters);
     handleFilters(filters);
-
-
-    // console.log("handle submit name", name);
-    // const nameLowerCase = name.toLowerCase();
-    // handleFilters(nameLowerCase);
-
-
-
-    // console.log("handle submit sale", sale);
-    // const filters = {
-    //   name: nameLowerCase,
-    //   sale: sale
-    // }
-    // console.log("handle submit filters", filters);
-
-    // handleFilters(filters);
   };
 
   React.useEffect(async () => {
