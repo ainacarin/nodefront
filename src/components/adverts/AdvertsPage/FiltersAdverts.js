@@ -4,7 +4,7 @@ import FormField from "../../shared/FormField";
 import { getAllTags } from '../../../api/adverts';
 
 const TagsList = (tags) => {
-  const { onChange } = { ...tags };
+  const { onChange, onChecked } = { ...tags};
 
   return (
     <div className="tagsAdvertForm-container">
@@ -20,6 +20,7 @@ const TagsList = (tags) => {
               value={tag}
               id={tag}
               onChange={onChange}
+              checked={onChecked(tag)}
             />
           </li>
         ))}
@@ -86,8 +87,8 @@ const FiltersAdverts = ({
   };
 
   const handleChangeFilters = (event) => {
-    console.log('event name', event.target.name);
-    console.log('event value', event.target.value);
+    // console.log('event name', event.target.name);
+    // console.log('event value', event.target.value);
     updateFilters(event.target.name, event.target.value);
   };
 
@@ -105,6 +106,8 @@ const FiltersAdverts = ({
     }
     updateFilters(event.target.name, newTags);
   };
+
+  const handleCheckedcheckbox = (key) => tags.includes(key);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -167,6 +170,7 @@ const FiltersAdverts = ({
               value="true"
               id="true"
               onChange={handleChangeFilters}
+              checked={"true" == sale}
             />
             <FormField
               type="radio"
@@ -176,6 +180,7 @@ const FiltersAdverts = ({
               value="false"
               id="false"
               onChange={handleChangeFilters}
+              checked={"false" == sale}
             />
             <FormField
               type="radio"
@@ -185,6 +190,7 @@ const FiltersAdverts = ({
               value="all"
               id="all"
               onChange={handleChangeFilters}
+              checked={"all" == sale}
             />
           </div>
           <div>
@@ -209,7 +215,7 @@ const FiltersAdverts = ({
               onChange={handleChangeFilters}
             />
           </div>
-          {tagsList.length ? <TagsList tags={tagsList} onChange={handleChangeCheckbox} onChange={handleChangeCheckbox} required /> : <p>No hay tags disponibles</p>}
+          {tagsList.length ? <TagsList tags={tagsList} onChange={handleChangeCheckbox} onChecked={handleCheckedcheckbox} /> : <p>No hay tags disponibles</p>}
           <Button
             type="submit"
             className="filtersForm-submit"
