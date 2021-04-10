@@ -98,7 +98,6 @@ const FiltersAdverts = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("on handle submit filters", filters);
     handleFilters(filters);
   };
 
@@ -112,11 +111,6 @@ const FiltersAdverts = ({
   }, []);
 
   const { name, sale, minPrice, maxPrice, tags } = { ...filters };
-  console.log('filters name', name);
-  console.log('filters sale', sale);
-  console.log('filters minPrice', minPrice);
-  console.log('filters maxPrice', maxPrice);
-  console.log('filters tags', tags);
 
   return (
     <div>

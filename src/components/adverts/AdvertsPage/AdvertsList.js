@@ -32,10 +32,6 @@ const AdvertsList = ({ advertsList }) => {
   const checkPriceValue = (advertPrice, filterMinPrice, filterMaxPrice) => {
     const filterMinPriceNumber = Number.parseFloat(filterMinPrice);
     const filterMaxPriceNumber = Number.parseFloat(filterMaxPrice);
-    console.log('number filter', typeof(filterMinPrice));
-    console.log('number filter', typeof(filterMaxPrice));
-    console.log('number advert', typeof(advertPrice));
-
     
     if (filterMinPriceNumber <= advertPrice) {
       if (filterMaxPriceNumber == 0.0) {
@@ -67,10 +63,7 @@ const AdvertsList = ({ advertsList }) => {
 
     const handleFilters = (filters) => {
     // part object filters
-    console.log("on handle filters advertsList", filters);
     const filtersResult = advertsInit.filter((advert) => {
-      // console.log('in filter advert', advert);
-      // console.log('in filter filter', filters);
       return (
         checkNameValue(advert.name, filters.name) &&
         checkSaleValue(advert.sale, filters.sale) &&
@@ -78,13 +71,11 @@ const AdvertsList = ({ advertsList }) => {
         checkTagsValue(advert.tags, filters.tags)
       );
     });
-    console.log("filters result", filtersResult);
 
     SetAdverts(filtersResult);
   };
 
   const handleCloseFilters = () => {
-    console.log("on handleCleanFilters");
     SetAdverts(advertsInit);
   };
 
