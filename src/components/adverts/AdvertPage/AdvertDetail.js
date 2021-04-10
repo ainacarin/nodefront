@@ -19,7 +19,7 @@ const TagList = (tags) => {
 };
 
 const AdvertDetail = ({ advert, ...routeProps }) => {
-  // console.log(advert);
+
   const { id, name, sale, price, tags, photo } = { ...advert };
   const textSale = (sale) => (sale ? "Se vende" : "Se compra");
   const srcPhoto = photo
@@ -65,7 +65,7 @@ const AdvertDetail = ({ advert, ...routeProps }) => {
           <div className="advert-price">{price} €</div>
         </div>
         <div className="advert-photo-container">
-          {/* <Photo src={photo || defaultPhoto} className="advert-photo" /> */}
+
           <Photo src={srcPhoto} className="advert-photo" />
         </div>
         {tags.length ? <TagList tags={tags} /> : <p />}
