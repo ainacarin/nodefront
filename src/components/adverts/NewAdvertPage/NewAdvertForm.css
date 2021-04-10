@@ -5,12 +5,6 @@
     color: rgb(24,190,190);
 }
 
-/* .formField.nameAdvertForm-field {
-    border-bottom-color: rgb(24,190,190);
-    border-bottom: rgb(24,190,190);
-    border-bottom-style: solid;
-    border-bottom-width: 0.1rem;
-} */
 
 .saleAdvertForm-container-title {
     width: 100%;
@@ -59,11 +53,6 @@
 
 }
 
-/* .formField-priceAdvertForm-field {
-    border-bottom-color: rgb(24,190,190);
-    border-bottom-style: solid;
-    border-bottom-width: 0.1rem;
-} */
 
 .tagsAdvertForm-container {
     border-bottom-color: rgb(24,190,190);
@@ -81,11 +70,6 @@
     width: 50%;
 }
 
-/* .formField.photoAdvertForm-field {
-    border-bottom-color: rgb(24,190,190);
-    border-bottom-style: solid;
-    border-bottom-width: 0.1rem;
-} */
 
 .newAdvertForm-submit {
     margin:1rem;
