@@ -24,26 +24,14 @@ export const getAllTags = () => {
 
 export const createAdvert = (advert) => {
   const data = new FormData();
-  data.append('name',advert.name);
-  data.append('sale',advert.sale);
-  data.append('price',advert.price);
-  data.append('tags',advert.tags);
+  data.append("name", advert.name);
+  data.append("sale", advert.sale);
+  data.append("price", advert.price);
+  data.append("tags", advert.tags);
   if (advert.photo) {
-    data.append('photo',advert.photo);
+    data.append("photo", advert.photo);
   }
 
-  const advertSender = { 
-    name: advert.name, 
-    sale: advert.sale,
-    price: advert.price,
-    tags: advert.tags,
-    photo: advert.photo
-  };
-  const config = {
-    headers: {
-        'content-type': 'multipart/form-data'
-    }
-}
   const url = `${advertsBaseUrl}/adverts`;
   return client.post(url, data);
 };
