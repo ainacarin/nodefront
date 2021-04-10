@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { LoginPage, PrivateRoute } from "./components/auth";
 import { AuthContextProvider } from "./components/auth/context";
-import AuthButton from "./components/auth/AuthButton";
 import { AdvertsPage, AdvertPage, NewAdvertPage } from "./components/adverts";
 
 function App({ isInitiallyLogged }) {
@@ -27,53 +26,19 @@ function App({ isInitiallyLogged }) {
   /** Display */
   return (
     <div className="App">
-      {/* {isLogged ? (
-        <div>Logueado</div>
-      ) : (
-        <LoginPage onLogin={handleLogin} />
-      )} */}
       <AuthContextProvider value={authContextValue}>
         <Switch>
           <PrivateRoute path="/advert/new">
-            {/* {({ location }) => (
-              <div>
-                Nuevo anuncio
-                <Link to="/adverts">Listado</Link>
-                <AuthButton className="header-button" />
-              </div>
-            )} */}
             <NewAdvertPage />
           </PrivateRoute>
           <PrivateRoute path="/advert/:advertId">
-            {/* {({ match }) => (
-              <div>
-                detalle de anuncio
-                <Link to="/adverts">Listado</Link>
-                <Link to="/advert/new">Nuevo anuncio</Link>
-                <AuthButton className="header-button" />
-              </div>
-            )} */}
             {(routeProps) => <AdvertPage {...routeProps} />}
           </PrivateRoute>
           <PrivateRoute path="/adverts">
-            {/* {({ history }) => (
-              <div>
-                Listado de anuncios
-                <Link to="/advert/4">Detalle 4</Link>
-                <Link to="/advert/new">Nuevo anuncio</Link>
-                <AuthButton className="header-button" />
-              </div>
-            )} */}
             <AdvertsPage />
           </PrivateRoute>
           <Route path="/login">
             {
-              // isLogged ? (
-              //   <Redirect to="/" />
-              // ) : (
-              // ({ history, location }) => <LoginPage onLogin={handleLogin} />
-              // )
-
               ({ history, location }) => (
                 <LoginPage history={history} location={location} />
               )
