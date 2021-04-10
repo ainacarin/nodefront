@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useDebugValue } from "react";
 import classNames from "classnames";
 
 import "./ModalConfirm.css";
 
-function ModalConfirm({ className, title, message, buttonPressed, mainStyle, ...props }) {
+function ModalConfirm({ className, title, message, buttonPressed, mainstyle, ...props }) {
   const handleActionButtonYes = () => buttonPressed(true);
   const handleActionButtonNo = () => buttonPressed(false);
   return (
-    <div className="modal-confirm-main" mainStyle>
+    <div className="modal-confirm-main" mainstyle={mainstyle.toString()}>
       <div
         className={classNames("modal-confirm-container", className)}
         {...props}

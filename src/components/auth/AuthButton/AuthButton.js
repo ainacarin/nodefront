@@ -43,7 +43,7 @@ const AuthButton = ({ className, isLogged, onLogout }) => {
           title="¿Está seguro?"
           message="Esta acción no tiene vuelta atrás"
           buttonPressed={callback}
-          mainStyle={{ top: 0 }, { left: 0 }}
+          mainstyle={{ top: 0 }, { left: 0 }}
         />
       )}
     </div>
