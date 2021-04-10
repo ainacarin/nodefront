@@ -90,7 +90,6 @@ const AdvertsList = ({ advertsList }) => {
           <Link to={`/advert/${advert.id}`} key={advert.id}>
             <Advert {...advert} />
           </Link>
-          // </li>
         ))}
       </div>
     </div>

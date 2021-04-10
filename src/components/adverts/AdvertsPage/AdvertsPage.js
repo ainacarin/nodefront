@@ -1,9 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import classnames from "classnames";
 import { getAllAdverts } from "../../../api/adverts";
 import Layout from "../../layout/Layout";
-import { Button, Loader } from "../../shared";
+import { Loader } from "../../shared";
 import "./AdvertsPage.css";
 import AdvertsList from "./AdvertsList";
 
