@@ -1,8 +1,23 @@
 .newAdvertForm-form {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 80%;
     color: rgb(24,190,190);
+}
+
+/* .formField.nameAdvertForm-field {
+    border-bottom-color: rgb(24,190,190);
+    border-bottom: rgb(24,190,190);
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;
+} */
+
+.saleAdvertForm-container-title {
+    width: 100%;
+}
+
+.formField.saleAdvertForm-field {
+    width: 50%;
 }
 
 .formField > label{
@@ -23,20 +38,57 @@
 
 .formField-label > input{
     color: rgb(24,190,190);
+    height: 1.5rem;
+    min-width: 25%;
+    border-bottom-color: rgb(24,190,190);
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;
 }
 
 .saleAdvertForm-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    border-radius: 0.5rem;
-    border-color: rgb(24,190,190);
-    border-style: solid;
-    border-width: 0.15rem;
 }
 
 .saleAdvertForm-container-title {
     font-size: 1.1rem;
-    text-align: left;
+    text-align: center;
+    border-bottom-color: rgb(24,190,190);
+    border-bottom-style: solid;
 
+}
+
+/* .formField-priceAdvertForm-field {
+    border-bottom-color: rgb(24,190,190);
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;
+} */
+
+.tagsAdvertForm-container {
+    border-bottom-color: rgb(24,190,190);
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;
+}
+
+.tagsAdvertForm-list {
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+
+.tagsAdvertForm-item {
+    width: 50%;
+}
+
+/* .formField.photoAdvertForm-field {
+    border-bottom-color: rgb(24,190,190);
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;
+} */
+
+.newAdvertForm-submit {
+    margin:1rem;
+    width: 75%;
+    align-self: center;
 }

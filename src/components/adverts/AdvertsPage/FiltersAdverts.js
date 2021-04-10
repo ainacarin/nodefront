@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../../shared";
 import FormField from "../../shared/FormField";
 import { getAllTags } from '../../../api/adverts';
+import './FiltersAdverts.css';
 
 const TagsList = (tags) => {
   const { onChange, onChecked } = { ...tags};

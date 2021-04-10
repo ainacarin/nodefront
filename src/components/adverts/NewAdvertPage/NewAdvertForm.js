@@ -104,7 +104,7 @@ const NewAdvertForm = ({ onSubmit }) => {
         onChange={handleChangeAdvert}
       />
       <div className="saleAdvertForm-container" required>
-        <p className="saleAdvertForm-container-title">Que desea hacer? Elija una opción</p>
+        <p className="saleAdvertForm-container-title">¿Qué desea hacer? Elija una opción</p>
         <FormField
           type="radio"
           name="sale"

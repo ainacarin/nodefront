@@ -80,7 +80,7 @@ const AdvertsList = ({ advertsList }) => {
   };
 
   return (
-    <div>
+    <div className="advertsListPage-container">
       <FiltersAdverts
         handleFilters={handleFilters}
         handleCloseFilters={handleCloseFilters}
