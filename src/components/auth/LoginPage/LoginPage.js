@@ -9,7 +9,6 @@ import AuthContext from "../context";
 function LoginPage({ history, location }) {
   const [error, setError] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
-  // const isLogged = React.useRef(false);
 
   const { isLogged, onLogin } = React.useContext(AuthContext);
 
@@ -18,15 +17,7 @@ function LoginPage({ history, location }) {
 
   const resetError = () => setError(null);
 
-  // React.useEffect(() => {
-  //   if (isLogged.current) {
-  //     onLogin();
-  //     const { from } = location.state || { from: { pathname: '/' } };
-  //     history.replace(from);
-  //   }
-  // });
-
-  React.useEffect(() => {
+    React.useEffect(() => {
     if (isLogged) {
       // onLogin();
       setIsLoading(false);
@@ -45,7 +36,6 @@ function LoginPage({ history, location }) {
     try {
       await login(credentials, saveSession);
       onLogin();
-      // isLogged.current = true;
     } catch (error) {
       setIsLoading(false);
     console.log('loading error', isLoading);

@@ -6,9 +6,6 @@ import { AuthContextConsumer } from "../context";
 import ModalConfirm from "../../shared/ModalConfirm";
 
 const AuthButton = ({ className, isLogged, onLogout }) => {
-  // const handleLogoutClick = () => {
-  //   logout().then(onLogout);
-  // };
 
   const [isConfirmDisplay, setIsConfirmDisplay] = React.useState(false);
 
