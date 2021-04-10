@@ -6,9 +6,6 @@ const PrivateRoute = ({...props }) => {
   const { isLogged } = React.useContext(AuthContext);
   const value = React.useContext(AuthContext);
 
-  console.log('PrivateRoute value', value);
-  console.log('PrivateRoute ...props', props);
-
   return isLogged ? 
   (
     <Route {...props}>

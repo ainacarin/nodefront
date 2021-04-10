@@ -12,8 +12,6 @@ function LoginPage({ history, location }) {
 
   const { isLogged, onLogin } = React.useContext(AuthContext);
 
-  console.log("LoginPage isLogged", isLogged);
-  console.log("LoginPage onLogin", onLogin);
 
   const resetError = () => setError(null);
 
@@ -21,24 +19,23 @@ function LoginPage({ history, location }) {
     if (isLogged) {
       // onLogin();
       setIsLoading(false);
-    console.log('loading useEffect', isLoading);
+ 
       const { from } = location.state || { from: { pathname: "/" } };
       history.replace(from);
     }
   }, [isLogged, isLoading, location, history]);
 
   const handleSubmit = async (credentials, saveSession) => {
-    console.log('credentials', credentials);
-    console.log('flag', saveSession);
+
     resetError();
     setIsLoading(true);
-    console.log('loading submit', isLoading);
+
     try {
       await login(credentials, saveSession);
       onLogin();
     } catch (error) {
       setIsLoading(false);
-    console.log('loading error', isLoading);
+
       setError(error);
     } finally {
       // setIsLoading(false);

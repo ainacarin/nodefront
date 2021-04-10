@@ -83,6 +83,7 @@ const AdvertDetail = ({ advert, ...routeProps }) => {
             title="¿Está seguro?"
             message="Esta acción no tiene vuelta atrás"
             buttonPressed={callback}
+            mainstyle={true}
           />
         )}
       </div>

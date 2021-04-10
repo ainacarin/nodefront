@@ -10,7 +10,6 @@ function App({ isInitiallyLogged }) {
   /** Properties */
   const [isLogged, setIsLogged] = React.useState(isInitiallyLogged);
 
-  console.log("App: isLogged", isLogged);
 
   /** Handlers */
   const handleLogin = () => setIsLogged(true);
