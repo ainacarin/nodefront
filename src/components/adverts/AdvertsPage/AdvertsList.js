@@ -8,7 +8,9 @@ const AdvertsList = ({ advertsList }) => {
   const [adverts, SetAdverts] = React.useState(advertsInit);
 
   const checkNameValue = (advertName, filterName) => {
-    if (filterName.trim() == "" || advertName.includes(filterName)) {
+    const advertNameLoweCase = advertName.toLowerCase();
+    const filterNameLowerCase = filterName.toLowerCase();
+    if (filterName.trim() == "" || advertNameLoweCase.includes(filterNameLowerCase)) {
       return true;
     } else {
       return false;
