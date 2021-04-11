@@ -12,6 +12,10 @@ const NewAdvertPage = (props) => {
   const [error, setError] = React.useState(null);
   const [createdAdvert, setCreatedAdvert] = React.useState(null);
 
+  const closeErrorMessage = () => {
+    setError(null);
+  }
+
   const handleSubmit = async (newAdvert) => {
     try {
       const advert = await createAdvert(newAdvert);
@@ -31,9 +35,14 @@ const NewAdvertPage = (props) => {
 
   return (
     <Layout title="Crea un nuevo anuncio" {...props}>
+      <div className="newAdvertPage-main-container">
+         {error && <div onClick={closeErrorMessage}>
+          <div className="newAdvertPage-error">{error.message}</div>
+        </div>}
        <div className="newAdvertPage" style={{ borderBottomWidth: 10 }}>
          <NewAdvertForm onSubmit={handleSubmit} /> 
        </div> 
+      </div>
     </Layout>
   );
 };
