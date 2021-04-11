@@ -1,3 +1,14 @@
+# NODEPOP 
+
+## Información principal de Nodepop
+React app para anunciar productos que se desean comprar o vender.
+El usuario registrado puede acceder al listado de anuncios, así como crear y borrar anuncios. 
+Además, se puede buscar el artículo de interés gracias a un filtro disponible en la página principal.
+## Backend de Nodepop
+Se hace uso de un backend accesible en https://github.com/davidjj76/nodepop-api
+
+# ------------------------------------------------------------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

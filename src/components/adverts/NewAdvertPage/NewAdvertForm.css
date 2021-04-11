@@ -1,0 +1,78 @@
+.newAdvertForm-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    color: rgb(24,190,190);
+}
+
+
+.saleAdvertForm-container-title {
+    width: 100%;
+}
+
+.formField.saleAdvertForm-field {
+    width: 50%;
+}
+
+.formField > label{
+    display:flex;
+    flex-direction: row;
+    background-color:white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+}
+
+.formField-label > span{
+    background-color: rgb(24,190,190);
+    color: white;
+    margin-right: 1rem;
+    min-width: 10rem;
+}
+
+.formField-label > input{
+    color: rgb(24,190,190);
+    height: 1.5rem;
+    min-width: 25%;
+    border-bottom-color: rgb(24,190,190);
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;
+}
+
+.saleAdvertForm-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.saleAdvertForm-container-title {
+    font-size: 1.1rem;
+    text-align: center;
+    border-bottom-color: rgb(24,190,190);
+    border-bottom-style: solid;
+
+}
+
+
+.tagsAdvertForm-container {
+    border-bottom-color: rgb(24,190,190);
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;
+}
+
+.tagsAdvertForm-list {
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+
+.tagsAdvertForm-item {
+    width: 50%;
+}
+
+
+.newAdvertForm-submit {
+    margin:1rem;
+    width: 75%;
+    align-self: center;
+}

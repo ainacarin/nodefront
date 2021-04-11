@@ -1,0 +1,63 @@
+.advert {
+  position: relative;
+  margin: 0.1rem;
+  /* max-width: 15rem; */
+  min-width: 20%;
+  max-width: 75%;
+  padding: 1rem;
+  margin: 1rem;
+
+  border-radius: 3rem;
+  display: inline-block;
+  background-color: rgba(199, 247, 247, 0.137);
+  color: rgb(51, 63, 63);
+
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+
+.advert:hover {
+  background-color: rgb(231, 250, 250);
+}
+
+.advert-header {
+  text-align: center;
+  font-size: 1.1rem;
+  overflow: hidden;
+  white-space: pre-wrap;
+}
+
+.advert-tags-list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  max-width: 425px;
+  flex-wrap: wrap;
+}
+
+.advert-tag-item {
+  margin-top: 10px;
+  max-width: 425px;
+  border-radius: 1rem;
+  background-color: rgba(199, 247, 247, 0.24);
+  padding: 0.5rem;
+}
+
+.advert-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.advert-sale {
+  margin: 0.5rem;
+  text-align: left;
+}
+
+.advert-price {
+  margin: 0.5rem;
+  text-align: right;
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
